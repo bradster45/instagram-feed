@@ -2,33 +2,7 @@ import requests
 
 from django.conf import settings
 from django.db.models import Count
-
-from django.core.cache import cache
-
-# get the cache key for storage
-def cache_get_key(*args, **kwargs):
-    import hashlib
-    serialise = []
-    for arg in args:
-        serialise.append(str(arg))
-    for key, arg in kwargs.items():
-        serialise.append(str(key))
-        serialise.append(str(arg))
-    key = hashlib.md5("".join(serialise)).hexdigest()
-    return key
-
-# decorator for caching functions
-def cache_for(time):
-    def decorator(fn):
-        def wrapper(*args, **kwargs):
-            key = cache_get_key(fn.__name__, *args, **kwargs)
-            result = cache.get(key)
-            if not result:
-                result = fn(*args, **kwargs)
-                cache.set(key, result, time)
-            return result
-        return wrapper
-    return decorator
+from public.cache_decorators import cache_for
 
 
 # 1 hour
@@ -37,9 +11,6 @@ cacheTime = 60 * 60
 
 @cache_for(cacheTime)
 def get_feed():
-    print('---------')
-    print('HIT CACHE')
-    print('---------')
 
     # assemble variables before request
     url = 'https://www.instagram.com/cranble/'
@@ -51,7 +22,7 @@ def get_feed():
     r = requests.get(url)
 
     # assign images to array
-    images_split = r.text.split('eight":480},{"src":"')
+    images_split = r.text.split('height":480},{"src":"')
     images = []
     for i in images_split[1:]:
         images.append(i.split('"')[0])
