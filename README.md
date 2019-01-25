@@ -1,6 +1,8 @@
 # instagramfeed
 
-Using Python requests, I generate a simple feed of Instagram posts by any account (that isn't private). The feed has basic account stats and the last 12 posts. Images have hover effects to enlarge slightly. Posts are cached to avoid spamming Instagram.
+Using Python requests, I generate a simple feed of Instagram posts by any non-private account. The feed has basic account stats and the last 12 posts. Images have hover effects to enlarge slightly. Posts are cached to avoid spamming Instagram.
+
+Major pros of this approach is avoiding having to setup API keys or anything like that to authorise requests, and you can load a feed of any account without having to be logged in yourself. This is provided the account you wish to see a feed for is not set to private.
 
 ![demo](https://github.com/bradster45/instagramfeed/blob/master/public/static/images/demo.JPG)
 
