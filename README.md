@@ -14,3 +14,6 @@ Major pros of this approach is avoiding having to setup API keys or anything lik
 
 3) [CSS](https://github.com/bradster45/instagramfeed/blob/master/public/static/css/instagram_feed.css)
 
+
+Might add:
+A detail popup modal that contains an iframe of the embedded post from Instagram.
