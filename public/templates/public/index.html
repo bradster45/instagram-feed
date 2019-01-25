@@ -1,0 +1,48 @@
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instagram feed demo</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="{% static 'css/instagram_feed.css' %}" rel="stylesheet">
+</head>
+<body>
+
+    <div class="instagram-feed-container">
+
+        <div class="avatar clearfix">
+            <img src="{{ instagram_feed.avatar_image }}" alt="">
+        </div>
+
+        <h3><a href="{{ instagram_feed.url }}">@{{ instagram_feed.account }}</a></h3>
+        <div class="account-info clearfix">
+            <div class="posts">
+                <span class="number">{{ instagram_feed.posts.number }}</span>
+                <br>
+                <span class="unit">{{ instagram_feed.posts.unit|lower }}</span>
+            </div>
+            <div class="followers">
+                <span class="number">{{ instagram_feed.followers.number }}</span>
+                <br>
+                <span class="unit">{{ instagram_feed.followers.unit|lower }}</span>
+            </div>
+            <div class="following">
+                <span class="number">{{ instagram_feed.following.number }}</span>
+                <br>
+                <span class="unit">{{ instagram_feed.following.unit|lower }}</span>
+            </div>
+        </div>
+        <div class="instagram-feed">
+            {% for image in instagram_feed.feed %}
+                <img src="{{ image }}" alt="">
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- <iframe width="320" height="440" src="https://www.instagram.com/p/Bs_BTQNllPE/embed" frameborder="0"></iframe> -->
+
+</body>
+</html>

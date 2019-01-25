@@ -1,0 +1,113 @@
+* {
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.clearfix {
+    display: block;
+}
+
+.instagram-feed-container{
+    width: 300px;
+    padding:5px;
+}
+
+.instagram-feed-container .avatar {
+    text-align:center;
+}
+
+.instagram-feed-container .avatar img{
+    border-radius: 100px;
+    border: 1px solid #dadada;
+    width:100px;
+}
+
+.instagram-feed-container h3{
+    margin:10px 0;
+    text-align: center;
+}
+
+.instagram-feed-container h3 a,
+.instagram-feed-container .account-info .number{
+    color:#0e97a9;
+    text-decoration: none;
+}
+
+.instagram-feed-container .account-info{
+    margin-bottom:10px;
+    border-top: 1px solid #dadada;
+    padding-top: 10px;
+}
+
+.instagram-feed-container .account-info div{
+    width:calc(100% / 3);
+    float:left;
+    text-align:center;
+}
+
+.instagram-feed {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    grid-auto-rows: minmax(50px, auto);
+    grid-gap: 10px;
+}
+
+.instagram-feed img {
+    width: 100%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.instagram-feed img:hover {
+    width: 100%;
+    transform: scale(1.6, 1.6);
+    z-index: 10;
+}
+
+.instagram-feed img:nth-child(3n + 1) {
+    transform-origin: left;
+}
+
+.instagram-feed img:nth-child(3n) {
+    transform-origin: right;
+}
+
+.instagram-feed img:nth-child(1) {
+    transform-origin: top left;
+}
+
+.instagram-feed img:nth-child(2) {
+    transform-origin: top;
+}
+
+.instagram-feed img:nth-child(3) {
+    transform-origin: top right;
+}
+
+.instagram-feed img:nth-child(10) {
+    transform-origin: bottom left;
+}
+
+.instagram-feed img:nth-child(11) {
+    transform-origin: bottom;
+}
+
+.instagram-feed img:nth-child(12) {
+    transform-origin: bottom right;
+}
