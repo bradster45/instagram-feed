@@ -22,6 +22,16 @@ body{
     display: block;
 }
 
+/* jquery modal stuff  */
+
+.blocker{
+    z-index:20 !important;
+}
+
+.modal{
+    width:400px;
+}
+
 .instagram-feed-container{
     width: 300px;
     padding:5px;
@@ -110,4 +120,9 @@ body{
 
 .instagram-feed img:nth-child(12) {
     transform-origin: bottom right;
+}
+
+#embeddedPost iframe{
+    margin: 0 auto;
+    display: block;
 }

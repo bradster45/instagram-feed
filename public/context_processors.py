@@ -21,11 +21,18 @@ def get_feed():
     # send request
     r = requests.get(url)
 
-    # assign images to array
-    images_split = r.text.split('height":480},{"src":"')
+    # trim text to valuble part
+    text = r.text.split('edge_owner_to_timeline_media')[1]
     images = []
-    for i in images_split[1:]:
-        images.append(i.split('"')[0])
+    for t in text.split('__typename')[1:]:
+        image = t.split('height":480},{"src":"')[1].split('"')[0]
+        shortcode = t.split('shortcode":"')[1].split('"')[0]
+        images.append({'image': image, 'shortcode': shortcode})
+    # assign images to array
+    # images_split = r.text.split('height":480},{"src":"')
+    # images = []
+    # for i in images_split[1:]:
+    #     images.append(i.split('"')[0])
 
     # set variables from request data
     info = r.text.split('<meta content="')[1].split('Posts -')[0]

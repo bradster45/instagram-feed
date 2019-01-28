@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Instagram feed demo</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- jquery modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
     <link href="{% static 'css/instagram_feed.css' %}" rel="stylesheet">
 </head>
 <body>
@@ -37,12 +43,24 @@
         </div>
         <div class="instagram-feed">
             {% for image in instagram_feed.feed %}
-                <img src="{{ image }}" alt="">
+                <img src="{{ image.image }}" alt="cranble instagram post {{ image.shortcode }}" data-shortcode="{{ image.shortcode }}">
             {% endfor %}
         </div>
     </div>
 
-    <!-- <iframe width="320" height="440" src="https://www.instagram.com/p/Bs_BTQNllPE/embed" frameborder="0"></iframe> -->
+    <div class="modal" id="embeddedPost">
+        <iframe width="320" height="540" src="https://www.instagram.com/p/Bs_BTQNllPE/embed" frameborder="0"></iframe>
+    </div>
 
+    <script>
+        $('.instagram-feed img').click(function(){
+            var shortcode = $(this).attr('data-shortcode');
+            $('iframe').attr('src', 'https://www.instagram.com/p/' + shortcode + '/embed');
+
+            $('#embeddedPost').modal({
+                fadeDuration: 100
+            });
+        });
+    </script>
 </body>
 </html>
