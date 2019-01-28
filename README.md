@@ -15,5 +15,8 @@ Major pros of this approach is avoiding having to setup API keys or anything lik
 3) [CSS](https://github.com/bradster45/instagramfeed/blob/master/public/static/css/instagram_feed.css)
 
 
-Might add:
-A detail popup modal that contains an iframe of the embedded post from Instagram.
+#### Added
+
+Iframe in popup modal using [jquerymodal](https://jquerymodal.com/). On image click, shortcode in iframe is changed and modal is shown.
+
+![demo](https://github.com/bradster45/instagramfeed/blob/master/public/static/images/modal.JPG)
