@@ -1,4 +1,4 @@
-# instagramfeed
+# instagram-feed
 
 Using Python requests, I generate a simple feed of Instagram posts by any non-private account. The feed has basic account stats and the last 12 posts. Images have hover effects to enlarge slightly. Posts are cached to avoid spamming Instagram.
 
